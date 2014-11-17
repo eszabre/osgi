@@ -12,6 +12,7 @@
         <module>config</module>
         <module>ds</module>
         <module>weaving</module>
+        <module>features</module>
     </modules>
     <dependencyManagement>
         <dependencies>

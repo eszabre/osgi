@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="features-feature">
+    <feature name="features-feature" description="features-feature" version="${pom.version}">
+        <config name="com.foo.bar">
+            booleanProperty = false
+        </config>
+        <configfile finalname="/etc/Bundle1Component.cfg">mvn:com.github.eszabre.osgi/features-bundle1/${pom.version}/Bundle1Component.cfg</configfile>
+    </feature>
+</features>
