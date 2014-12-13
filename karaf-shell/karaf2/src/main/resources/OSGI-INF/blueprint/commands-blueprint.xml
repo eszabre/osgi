@@ -19,8 +19,19 @@
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.0.0">
 		<command name="eszabre/hello">
-			<action class="com.github.eszabre.osgi.karaf.shell.karaf2.MyCommand"/>
+			<action class="com.github.eszabre.osgi.karaf.shell.karaf2.SimpleCommand"/>
+		</command>
+		<command name="eszabre/helloArg">
+			<action class="com.github.eszabre.osgi.karaf.shell.karaf2.CommandWithArgument"/>
+		</command>
+		<command name="eszabre/helloCompleter">
+			<action class="com.github.eszabre.osgi.karaf.shell.karaf2.CommandWithCompleter"/>
+			<completers>
+				<ref component-id="simpleNameCompleter"/>
+				<null/>
+			</completers>
 		</command>
 	</command-bundle>
 
+	<bean id="simpleNameCompleter" class="com.github.eszabre.osgi.karaf.shell.karaf2.MyCompleter"/>
 </blueprint>
