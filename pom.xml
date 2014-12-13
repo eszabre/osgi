@@ -13,7 +13,9 @@
         <module>ds</module>
         <module>weaving</module>
         <module>features</module>
+        <module>karaf-shell</module>
     </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -31,7 +33,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <karaf.home>C:\work\apache-servicemix-5.3.0\deploy</karaf.home>
+        <karaf.home>C:\work\apache-servicemix-5.3.0\</karaf.home>
     </properties>
     <build>
         <plugins>
@@ -50,6 +52,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
+                    <version>2.5.3</version>
                     <extensions>true</extensions>
                     <configuration>
                         <manifestLocation>META-INF</manifestLocation>
@@ -59,4 +62,37 @@
         </pluginManagement>
     </build>
 
+    <profiles>
+        <profile>
+            <id>install_profile</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${karaf.home}/deploy</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>target</directory>
+                                            <includes>
+                                                <include>*.jar</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
