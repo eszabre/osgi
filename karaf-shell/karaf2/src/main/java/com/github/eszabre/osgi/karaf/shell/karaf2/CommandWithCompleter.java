@@ -24,7 +24,7 @@ import org.apache.karaf.shell.console.OsgiCommandSupport;
 public class CommandWithCompleter extends OsgiCommandSupport {
 
 	@Argument(index = 0, name = "argName", description = "The argument", required = true, multiValued = false)
-	String name = null;
+	private String name = null;
 
 	@Override
 	protected Object doExecute() throws Exception {
