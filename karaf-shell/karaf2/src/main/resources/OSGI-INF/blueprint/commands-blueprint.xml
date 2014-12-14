@@ -31,7 +31,16 @@
 				<null/>
 			</completers>
 		</command>
+
+
+		<command name="eszabre/head">
+			<action class="com.github.eszabre.osgi.karaf.shell.karaf2.head.MyHeadCommand"/>
+			<completers>
+				<ref component-id="fileCompleter"/>
+			</completers>
+		</command>
 	</command-bundle>
 
 	<bean id="simpleNameCompleter" class="com.github.eszabre.osgi.karaf.shell.karaf2.MyCompleter"/>
+	<bean id="fileCompleter" class="com.github.eszabre.osgi.karaf.shell.karaf2.head.MyFileCompleter"/>
 </blueprint>
