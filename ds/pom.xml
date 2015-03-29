@@ -32,6 +32,7 @@
 	<modules>
 		<module>ds-bnd</module>
 		<module>ds-felix-scr</module>
+		<module>ds-felix-scr-it</module>
 	</modules>
 
 </project>

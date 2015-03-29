@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.github.eszabre.osgi.testing.pax.exam.simple;
+package com.github.eszabre.osgi.ds.felix.scr.it;
 
 import com.github.eszabre.osgi.ds.felix.scr.hello.HelloService;
 import org.junit.Test;
@@ -33,7 +33,7 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
-public class SimpleTest {
+public class HelloTest {
 
 	@Inject
 	private HelloService helloService;

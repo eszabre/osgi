@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Szabolcs Balazs Beres.
+ * Copyright 2015 Szabolcs Balazs Beres.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -14,9 +14,18 @@
  *    limitations under the License.
  */
 
-package com.github.eszabre.osgi.ds.felix.scr;
+package com.github.eszabre.osgi.ds.felix.scr.filtering.impl;
 
+import com.github.eszabre.osgi.ds.felix.scr.filtering.Calculator;
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Service;
 
-public interface HelloService {
-	int add(int a, int b);
+@Component
+@Service
+public class NumberCalculator implements Calculator {
+	@Override
+	public int add(int a, int b) {
+		System.out.println("NumberCalculator: add called: " + a + " + " + b);
+		return a + b;
+	}
 }

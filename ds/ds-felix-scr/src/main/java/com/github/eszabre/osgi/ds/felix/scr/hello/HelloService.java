@@ -14,20 +14,9 @@
  *    limitations under the License.
  */
 
-package com.github.eszabre.osgi.ds.felix.scr.impl;
+package com.github.eszabre.osgi.ds.felix.scr.hello;
 
 
-import com.github.eszabre.osgi.ds.felix.scr.HelloService;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Service;
-
-@Component
-@Service
-public class HelloServiceImpl implements HelloService {
-
-	@Override
-	public int add(int a, int b) {
-		System.out.println("Add called: " + a + " + " + b);
-		return a + b;
-	}
+public interface HelloService {
+	int add(int a, int b);
 }

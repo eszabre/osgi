@@ -14,9 +14,9 @@
  *    limitations under the License.
  */
 
-package com.github.eszabre.osgi.testing.pax.exam.simple;
+package com.github.eszabre.osgi.ds.felix.scr.it;
 
-import com.github.eszabre.osgi.ds.felix.scr.hello.HelloService;
+import com.github.eszabre.osgi.ds.felix.scr.filtering.UberCalculator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -33,10 +33,10 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
-public class SimpleTest {
+public class UberCalculatorTest {
 
 	@Inject
-	private HelloService helloService;
+	private UberCalculator uberCalculator;
 
 	@Configuration
 	public Option[] config() {
@@ -56,12 +56,18 @@ public class SimpleTest {
 	}
 
 	@Test
-	public void testRunning() {
-		assertNotNull(helloService);
+	public void testServiceExists() throws Exception {
+		assertNotNull(uberCalculator);
 	}
 
 	@Test
-	public void getHelloService() {
-		assertEquals(3, helloService.add(1, 2));
+	public void testStringCalc() throws Exception {
+		assertEquals(35, uberCalculator.addAsString(3,5));
 	}
+
+	@Test
+	public void testNumberCalc() throws Exception {
+		assertEquals(8, uberCalculator.addAsNumber(3,5));
+	}
+
 }
